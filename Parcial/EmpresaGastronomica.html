@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Libro de visita</title>
+
+    <style>
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+
+        .amarillo{background-color: burlywood;}
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h1>Ingreso</h1>
+        <div>
+            <fieldset class="amarillo">
+                <legend>Datos del cliente</legend>
+                Nombre:<br>
+                <input type="text" id="txtNombre"><br><br>
+                Apellido:<br>
+                <input type="text" id="txtApellido"><br><br>
+                Fecha:<br>
+                <input type="datetime" id="fecha"><br><br>
+                Control:<br>
+                <input type="radio" name="control" id="">Consulta<br>
+                <input type="radio" name="control" id="">Agadecimiento<br>
+                <input type="radio" name="control" id="">Reclamo<br>
+                <input type="radio" name="control" id="">otros<br>
+                Comentario:<br>
+                <textarea name="comentario" id="comentario" cols="30" rows="10"></textarea><br><br>
+                <input type="button" value="Enviar Datos" onclick="verificarDatos()">
+            </fieldset>
+
+
+        </div>
+    </form>
+    <script>
+
+
+        function verificarDatos() {
+            let txtNombre = document.getElementById('txtNombre').value;
+            let txtApellido = document.getElementById('txtApellido').value;
+            let comentario = document.getElementById('comentario').value;
+            let opcion = false;
+            let radio = document.getElementsByName('control');
+
+            if (txtNombre === '') {
+                alert('Ingresar el nombre');
+                return true;
+            }
+            if (txtApellido === '') {
+                alert('Ingresar el apellido');
+                return true;
+            }
+            if (comentario === '') {
+                alert('Ingresar comentario');
+                return true;
+            }
+
+
+
+            for (let i = 0; i < radio.length; i++) {
+                if (radio[i].checked){
+                    opcion=true;
+                    break;
+                }
+            }
+            if (opcion == false) {
+                alert('Ingresar opcion');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
